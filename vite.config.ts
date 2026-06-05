@@ -12,4 +12,15 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+
+  vite: {
+    preview: {
+      allowedHosts: [
+        "o100tp5vvdg7uebr65by46ny.76.13.226.201.sslip.io",
+        ".sslip.io",
+        "localhost",
+        "127.0.0.1",
+      ],
+    },
+  },
 });
