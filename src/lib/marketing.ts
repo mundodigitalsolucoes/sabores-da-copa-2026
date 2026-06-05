@@ -35,11 +35,19 @@ function hasRealId(value: string, placeholder: string) {
   return value.trim().length > 0 && value !== placeholder;
 }
 
+function getTrackingState() {
+  if (typeof window === "undefined") {
+    return { pageViewSent: false, depth70Sent: false };
+  }
+  window.__saboresTracking = window.__saboresTracking || {};
+  return window.__saboresTracking;
+}
+
 export function bootstrapMarketing() {
   if (typeof window === "undefined") return;
 
   window.dataLayer = window.dataLayer || [];
-  window.__saboresTracking = window.__saboresTracking || {};
+  getTrackingState();
 
   if (!window.gtag) {
     window.gtag = (...args: unknown[]) => {
@@ -69,8 +77,9 @@ export function trackPageView() {
   if (typeof window === "undefined") return;
   bootstrapMarketing();
 
-  if (window.__saboresTracking?.pageViewSent) return;
-  window.__saboresTracking.pageViewSent = true;
+  const state = getTrackingState();
+  if (state.pageViewSent) return;
+  state.pageViewSent = true;
 
   pushDataLayer("sabores_page_view", { trigger: "visitou_pagina" });
   window.gtag?.("event", "page_view", {
@@ -149,8 +158,9 @@ export function trackScrollDepth70() {
   if (typeof window === "undefined") return;
   bootstrapMarketing();
 
-  if (window.__saboresTracking?.depth70Sent) return;
-  window.__saboresTracking.depth70Sent = true;
+  const state = getTrackingState();
+  if (state.depth70Sent) return;
+  state.depth70Sent = true;
 
   pushDataLayer("scroll_depth_70", {
     trigger: "rolou_70_porcento",
