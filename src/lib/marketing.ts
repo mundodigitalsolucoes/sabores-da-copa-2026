@@ -14,9 +14,9 @@ export const MARKETING_IDS = {
 };
 
 export const PLACEHOLDER_IDS = {
-  gtm: "GTM-XXXXXXX",
-  metaPixel: "123456789012345",
-  googleAds: "AW-XXXXXXXXXX",
+  gtm: "GTM-PSVPR4K5",
+  metaPixel: "",
+  googleAds: "",
 };
 
 declare global {
