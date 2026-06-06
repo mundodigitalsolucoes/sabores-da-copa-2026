@@ -15,12 +15,13 @@ export default defineConfig({
 
   vite: {
     preview: {
-      allowedHosts: [
-        "o100tp5vvdg7uebr65by46ny.76.13.226.201.sslip.io",
-        ".sslip.io",
-        "localhost",
-        "127.0.0.1",
-      ],
-    },
+  allowedHosts: [
+    "copa.villarotisseria.com.br",
+    ".villarotisseria.com.br",
+    ".sslip.io",
+    "localhost",
+    "127.0.0.1",
+  ],
+  },
   },
 });
