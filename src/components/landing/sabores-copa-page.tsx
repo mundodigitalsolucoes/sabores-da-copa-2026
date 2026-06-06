@@ -20,6 +20,13 @@ import ctaGif from "@/assets/cta.gif";
 import footerLogo from "@/assets/logo-villa.png";
 import passportImage from "@/assets/passaporte.png";
 
+import comboChurrasImage from "@/assets/combo-churras-do-ney.png";
+import comboFrangaoImage from "@/assets/combo-frangao-vinijr.png";
+import comboTilapiaImage from "@/assets/combo-tilapia-hexa.png";
+import comboCosteladaImage from "@/assets/combo-costelada-selecao.png";
+import comboTorresmoImage from "@/assets/combo-torresmo-bruto-guimaraes.png";
+import comboCalabresaImage from "@/assets/combo-calabresa-mrancelotti.png";
+
 import { Button } from "@/components/ui/button";
 import {
   CAMPAIGN_LINKS,
@@ -40,19 +47,40 @@ const benefits = [
 
 const comboCards = [
   {
-    name: "Combo Torcida",
-    copy: "Perfeito para reunir a galera antes do jogo.",
-    accent: "Mais pedido da rodada",
+    name: "Combo Churras do Ney",
+    copy: "6 espetinhos de carne, frango ou linguiça, acompanhados de vinagrete, farofa e patê de alho.",
+    accent: "Churrasco da torcida",
+    image: comboChurrasImage,
   },
   {
-    name: "Combo Hexa",
-    copy: "Seleção de clássicos da Villa com clima de decisão.",
-    accent: "Favorito do estádio",
+    name: "Combo Frangão do Vini Jr.",
+    copy: "1 kg de frango à passarinho bem crocante com batata frita para acompanhar o jogo.",
+    accent: "Crocância de craque",
+    image: comboFrangaoImage,
   },
   {
-    name: "Combo Campeão",
-    copy: "Mesa farta para transformar cada lance em celebração.",
-    accent: "Ideal para família",
+    name: "Combo Tilápia do Hexa",
+    copy: "500 g de tilápia crocante, 500 g de batata frita e molho rosé.",
+    accent: "Peixe na rede",
+    image: comboTilapiaImage,
+  },
+  {
+    name: "Combo Costelada da Seleção",
+    copy: "500 g de costela, 600 g de arroz, 400 g de mandioca e 400 g de vinagrete.",
+    accent: "Mesa de campeão",
+    image: comboCosteladaImage,
+  },
+  {
+    name: "Combo Torresmo Bruto Guimarães",
+    copy: "600 g de torresmo crocante acompanhado de molho de alho.",
+    accent: "Bruto e crocante",
+    image: comboTorresmoImage,
+  },
+  {
+    name: "Combo Calabresa Mr Acelotti",
+    copy: "500 g de calabresa acebolada com 500 g de batata frita e molho de alho ou rosé.",
+    accent: "Tática perfeita",
+    image: comboCalabresaImage,
   },
 ];
 
@@ -282,24 +310,33 @@ export function SaboresCopaPage() {
       />
     </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {comboCards.map((combo, index) => (
-                <article key={combo.name} className="campaign-panel reveal rounded-xl p-5" data-section={`combo_${index + 1}`}>
-                  <div className="campaign-media-slot">
-                    <div className="campaign-media-slot-inner">
-                      <UtensilsCrossed className="h-8 w-8 text-highlight" />
-                      <span>Espaço para imagem do combo</span>
-                    </div>
-                  </div>
-                  <div className="mt-5 flex items-center gap-2 text-highlight">
-                    <Star className="h-4 w-4" />
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em]">{combo.accent}</span>
-                  </div>
-                  <h3 className="mt-3 font-display text-3xl leading-none text-foreground">{combo.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{combo.copy}</p>
-                </article>
-              ))}
-            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+  {comboCards.map((combo, index) => (
+    <article
+      key={combo.name}
+      className="campaign-panel reveal overflow-hidden rounded-2xl p-5 transition duration-300 hover:-translate-y-1"
+      data-section={`combo_${index + 1}`}
+    >
+      <div className="relative flex aspect-square items-center justify-center rounded-2xl bg-black/10 p-3">
+        <div className="pointer-events-none absolute inset-0 rounded-full bg-highlight/10 blur-2xl" aria-hidden="true" />
+        <img
+          src={combo.image}
+          alt={combo.name}
+          className="relative z-10 h-full w-full object-contain drop-shadow-[0_0_34px_rgba(255,208,0,0.22)]"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="mt-5 flex items-center gap-2 text-highlight">
+        <Star className="h-4 w-4" />
+        <span className="text-xs font-semibold uppercase tracking-[0.18em]">{combo.accent}</span>
+      </div>
+
+      <h3 className="mt-3 font-display text-3xl leading-none text-foreground">{combo.name}</h3>
+      <p className="mt-3 text-sm leading-6 text-muted-foreground">{combo.copy}</p>
+    </article>
+  ))}
+</div>
 
             <CampaignActions source="combos" />
           </div>
@@ -504,7 +541,7 @@ export function SaboresCopaPage() {
   <div className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
       <div>
-        <img src={footerLogo} alt="Logo da Villa Rotisseria" className="h-18 w-auto" loading="lazy" />
+        <img src={footerLogo} alt="Logo da Villa Rotisseria" className="h-24 w-auto sm:h-36" loading="lazy" />
         <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
           Marmitex, assados, combos dos jogos, Copa dos Sabores, Passaporte Gastronômico e Bolão da Copa para você torcer com sabor durante toda a campanha.
         </p>
