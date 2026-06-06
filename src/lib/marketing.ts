@@ -1,16 +1,16 @@
 export const CAMPAIGN_LINKS = {
   whatsapp: "https://wa.me/5517992091750",
   menu: "https://cardapio.villarotisseria.com.br",
-  site: "https://villarotisseria.com.br",
-  instagram: "https://instagram.com/villarotisseria",
+  site: "https://copa.villarotisseria.com.br",
+  instagram: "https://instagram.com/villarotisseria_",
 };
 
 export const MARKETING_IDS = {
-  gtm: "GTM-XXXXXXX",
-  metaPixel: "123456789012345",
-  googleAds: "AW-XXXXXXXXXX",
-  googleAdsWhatsAppLabel: "CLICK_WHATSAPP",
-  googleAdsMenuLabel: "CLICK_CARDAPIO",
+  gtm: "GTM-PSVPR4K5",
+  metaPixel: "",
+  googleAds: "",
+  googleAdsWhatsAppLabel: "",
+  googleAdsMenuLabel: "",
 };
 
 export const PLACEHOLDER_IDS = {
