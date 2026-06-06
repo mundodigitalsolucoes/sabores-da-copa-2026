@@ -212,7 +212,7 @@ export function SaboresCopaPage() {
 
         <section className="relative isolate overflow-hidden border-b border-border/60">
           <div className="campaign-hero-glow" aria-hidden="true" />
-          <div className="container mx-auto grid min-h-screen max-w-7xl gap-10 px-4 pb-16 pt-6 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-24 lg:pt-8">
+          <div className="container mx-auto grid min-h-screen max-w-7xl items-center gap-6 px-4 pb-16 pt-6 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:pb-20 lg:pt-8">
             <div className="relative z-10 flex flex-col justify-between">
               <div>
                 
@@ -232,16 +232,17 @@ export function SaboresCopaPage() {
               
             </div>
 
-            <div className="relative z-10 flex items-end justify-center">
-              <div className="campaign-image-frame reveal max-w-[36rem]" data-section="hero_poster">
-                <img
-                  src={heroImage}
-                  alt="Arte principal da campanha Sabores da Copa com mascote da Villa em camisa 10 do Brasil"
-                  className="h-full w-full object-contain drop-shadow-[0_0_45px_rgba(255,208,0,0.25)] transition duration-700 ease-out hover:scale-[1.02]"
-                  fetchPriority="high"
-                />
-              </div>
-            </div>
+            <div className="relative z-10 flex items-center justify-center lg:justify-end">
+  <div className="reveal relative w-full max-w-[42rem] animate-[mascotFloat_4s_ease-in-out_infinite]" data-section="hero_poster">
+    <div className="pointer-events-none absolute inset-0 rounded-full bg-highlight/20 blur-3xl" aria-hidden="true" />
+    <img
+      src={heroImage}
+      alt="Arte principal da campanha Sabores da Copa com mascote da Villa em camisa 10 do Brasil"
+      className="relative z-10 h-auto w-full object-contain drop-shadow-[0_0_55px_rgba(255,208,0,0.35)] transition duration-700 ease-out hover:scale-[1.03]"
+      fetchPriority="high"
+    />
+  </div>
+</div>
           </div>
         </section>
 

@@ -376,3 +376,14 @@
     opacity: 1;
   }
 }
+@keyframes mascotFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 28px rgba(255, 208, 0, 0.25));
+  }
+
+  50% {
+    transform: translateY(-12px) scale(1.015);
+    filter: drop-shadow(0 0 46px rgba(255, 208, 0, 0.42));
+  }
+}
