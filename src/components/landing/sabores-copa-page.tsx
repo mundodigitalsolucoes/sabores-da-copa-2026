@@ -17,8 +17,8 @@ import flavorsImage from "@/assets/sabores-da-copa.png";
 import roastChickenImage from "@/assets/frango-assado.png";
 import ctaGif from "@/assets/cta.gif";
 
-import passportAsset from "@/assets/passaporte-gastronomico.png.asset.json";
-import logoAsset from "@/assets/villa-rotisseria-logo.png.asset.json";
+import footerLogo from "@/assets/logo-villa.png";
+import passportImage from "@/assets/passaporte.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -349,11 +349,11 @@ export function SaboresCopaPage() {
             <div>
               <div className="campaign-image-frame reveal" data-section="passport_visual">
                 <img
-                  src={passportAsset.url}
-                  alt="Mockup ilustrativo do Passaporte Gastronômico da campanha"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+  src={passportImage}
+  alt="Passaporte Gastronômico da campanha Sabores da Copa"
+  className="h-full w-full object-contain p-4"
+  loading="lazy"
+/>
               </div>
             </div>
             <div>
@@ -504,7 +504,7 @@ export function SaboresCopaPage() {
   <div className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
       <div>
-        <img src={logoAsset.url} alt="Logo da Villa Rotisseria" className="h-18 w-auto" loading="lazy" />
+        <img src={footerLogo} alt="Logo da Villa Rotisseria" className="h-18 w-auto" loading="lazy" />
         <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
           Marmitex, assados, combos dos jogos, Copa dos Sabores, Passaporte Gastronômico e Bolão da Copa para você torcer com sabor durante toda a campanha.
         </p>
@@ -576,7 +576,7 @@ export function SaboresCopaPage() {
             "@type": "LocalBusiness",
             name: "Villa Rotisseria",
             image: heroImage,
-            logo: logoAsset.url,
+            logo: footerLogo,
             url: CAMPAIGN_LINKS.site,
             description:
               "Campanha Sabores da Copa é na Villa com delivery especial, combos da rodada, Copa dos Sabores, Passaporte Gastronômico e Bolão da Copa 2026.",
