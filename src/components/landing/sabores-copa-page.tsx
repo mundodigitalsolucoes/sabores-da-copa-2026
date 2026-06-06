@@ -1,28 +1,25 @@
 import { useEffect, useMemo } from "react";
 import {
   ArrowRight,
-  Clock3,
   Gift,
-  Globe,
   MapPinned,
-  PackageCheck,
   ScrollText,
   ShieldCheck,
   Star,
   Trophy,
-  Truck,
   UtensilsCrossed,
   Zap,
 } from "lucide-react";
 
 import heroImage from "@/assets/mascote-villa-copa.png";
-import deliveryAsset from "@/assets/delivery-especial.png.asset.json";
-import combosAsset from "@/assets/combos-especiais.png.asset.json";
-import flavorsAsset from "@/assets/copa-sabores.png.asset.json";
+import deliveryMascotImage from "@/assets/mascote-delivery.png";
+import flavorsImage from "@/assets/sabores-da-copa.png";
+import roastChickenImage from "@/assets/frango-assado.png";
+import ctaGif from "@/assets/cta.gif";
+
 import passportAsset from "@/assets/passaporte-gastronomico.png.asset.json";
-import poolAsset from "@/assets/bolao-copa.png.asset.json";
-import finalAsset from "@/assets/acesso-cardapio.png.asset.json";
 import logoAsset from "@/assets/villa-rotisseria-logo.png.asset.json";
+
 import { Button } from "@/components/ui/button";
 import {
   CAMPAIGN_LINKS,
@@ -62,14 +59,11 @@ const comboCards = [
 const countries = [
   { flag: "🇧🇷", country: "Brasil", dish: "Feijoada" },
   { flag: "🇵🇹", country: "Portugal", dish: "Bacalhau à Portuguesa" },
-  { flag: "🇪🇸", country: "Espanha", dish: "Paella" },
+  { flag: "🇪🇸", country: "Espanha", dish: "Tábua de Frios" },
   { flag: "🇦🇷", country: "Argentina", dish: "Picanha" },
-  { flag: "🇩🇪", country: "Alemanha", dish: "Joelho de Porco" },
-  { flag: "🇯🇵", country: "Japão", dish: "Sushi" },
-  { flag: "🇲🇦", country: "Marrocos", dish: "Cuscuz Marroquino" },
 ];
 
-const prizes = ["Sobremesas", "Refrigerantes", "Descontos", "Brindes surpresa"];
+const prizes = ["Um assado à escolha do cliente", "Válido para quem completar o passaporte", "Prêmio especial da Copa"];
 const podium = ["Frango Assado", "Marmitas", "Vale-compras"];
 const stats = [
   { value: 3, suffix: "x", label: "mais cliques no pedido" },
@@ -212,7 +206,7 @@ export function SaboresCopaPage() {
 
         <section className="relative isolate overflow-hidden border-b border-border/60">
           <div className="campaign-hero-glow" aria-hidden="true" />
-          <div className="container mx-auto grid min-h-screen max-w-7xl items-center gap-6 px-4 pb-16 pt-6 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:pb-20 lg:pt-8">
+          <div className="container mx-auto grid min-h-screen max-w-7xl gap-10 px-4 pb-16 pt-6 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-24 lg:pt-8">
             <div className="relative z-10 flex flex-col justify-between">
               <div>
                 
@@ -247,23 +241,24 @@ export function SaboresCopaPage() {
         </section>
 
         <section className="relative border-b border-border/60 py-18 sm:py-24">
-          <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
-            <div className="order-2 lg:order-1">
-              <div className="campaign-image-frame reveal" data-section="delivery">
-                <img
-                  src={deliveryAsset.url}
-                  alt="Criativo de delivery especial nos jogos do Brasil"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <SectionHeader
-                eyebrow="🚚 Dobra 02"
-                title="Delivery Especial nos Jogos do Brasil"
-                text="Nos dias de jogos da Seleção Brasileira, nosso delivery funciona até o início da partida para a torcida pedir sem correria."
-              />
+  <div className="container mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+    <div className="order-2 lg:order-1">
+      <div className="reveal relative mx-auto max-w-[34rem]" data-section="delivery">
+        <div className="pointer-events-none absolute inset-0 rounded-full bg-highlight/15 blur-3xl" aria-hidden="true" />
+        <img
+          src={deliveryMascotImage}
+          alt="Mascote da Villa em clima de delivery especial nos jogos do Brasil"
+          className="relative z-10 h-auto w-full object-contain drop-shadow-[0_0_42px_rgba(255,208,0,0.28)]"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div className="order-1 lg:order-2">
+      <SectionHeader
+        eyebrow="🚚 Delivery Especial"
+        title="Delivery Especial nos Jogos do Brasil"
+        text="Nos dias de jogos da Seleção Brasileira, a Villa prepara seu pedido até o início da partida para você torcer com tudo pronto e sem correria."
+      />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {benefits.map((benefit) => (
                   <div key={benefit} className="campaign-panel reveal flex items-start gap-3 rounded-xl p-4">
@@ -278,22 +273,14 @@ export function SaboresCopaPage() {
         </section>
 
         <section className="relative border-b border-border/60 py-18 sm:py-24">
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <SectionHeader
-                eyebrow="🇧🇷 Dobra 03"
-                title="Combos Especiais para Torcer"
-                text="Cada jogo do Brasil terá um combo especial. Monte sua torcida com opções desenhadas para esquentar a resenha antes, durante e depois do jogo."
-              />
-              <div className="campaign-image-mini reveal" data-section="combos_banner">
-                <img
-                  src={combosAsset.url}
-                  alt="Criativo dos combos especiais da campanha"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+  <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <SectionHeader
+        eyebrow="🇧🇷 Combos dos Jogos"
+        title="Combos Especiais para Torcer"
+        text="Cada jogo do Brasil terá um combo especial para reunir a família, chamar os amigos e acompanhar a Seleção com muito sabor."
+      />
+    </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {comboCards.map((combo, index) => (
@@ -324,7 +311,7 @@ export function SaboresCopaPage() {
             <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
               <div>
                 <SectionHeader
-                  eyebrow="🌎 Dobra 04"
+                  eyebrow="🌎 Copa dos Sabores"
                   title="Uma Viagem Gastronômica pelo Mundo"
                   text="Toda semana um país participante será homenageado com pratos especiais para transformar a Villa em estádio, arquibancada e rota gastronômica da Copa."
                 />
@@ -347,7 +334,7 @@ export function SaboresCopaPage() {
 
               <div className="campaign-image-frame reveal" data-section="flavors_visual">
                 <img
-                  src={flavorsAsset.url}
+                  src={flavorsImage}
                   alt="Criativo Copa dos Sabores com pratos de vários países"
                   className="h-full w-full object-cover"
                   loading="lazy"
@@ -371,10 +358,10 @@ export function SaboresCopaPage() {
             </div>
             <div>
               <SectionHeader
-                eyebrow="🛂 Dobra 05"
-                title="Passaporte Gastronômico"
-                text="A cada país experimentado você recebe um carimbo. Complete seu passaporte, acumule experiências e transforme cada rodada em uma chance de ganhar brindes especiais."
-              />
+  eyebrow="🛂 Passaporte Gastronômico"
+  title="Complete seu Passaporte da Copa"
+  text="Experimente os pratos especiais dos países participantes, complete seu passaporte gastronômico e ganhe um assado à escolha no cardápio da Villa."
+/>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {prizes.map((prize) => (
                   <div key={prize} className="campaign-panel reveal flex items-center gap-3 rounded-xl p-4" data-section={`prize_${prize}`}>
@@ -389,7 +376,7 @@ export function SaboresCopaPage() {
                   <span className="text-xs font-semibold uppercase tracking-[0.22em]">Mecânica da promoção</span>
                 </div>
                 <p className="mt-4 text-lg leading-7 text-foreground">
-                  Carimbou, avançou. Quanto mais países no passaporte, mais perto de brindes, descontos e recompensas especiais para a sua torcida.
+                  Comprou os pratos participantes, carimbou o passaporte. Completou todos os países da campanha, ganha um assado à escolha para deixar a torcida ainda mais completa.
                 </p>
               </div>
               <CampaignActions source="passaporte" />
@@ -402,10 +389,10 @@ export function SaboresCopaPage() {
             <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr]">
               <div>
                 <SectionHeader
-                  eyebrow="⚽ Dobra 06"
-                  title="Bolão da Copa"
-                  text="Participe dos palpites dos jogos do Brasil, aumente o alcance da campanha nas redes e concorra a prêmios especiais em cada partida."
-                />
+  eyebrow="⚽ Bolão da Copa"
+  title="Dê seu palpite e concorra a prêmios"
+  text="Participe dos palpites dos jogos do Brasil, comente o placar nas publicações da Villa e concorra a prêmios especiais em cada partida."
+/>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
                   {[
@@ -438,7 +425,7 @@ export function SaboresCopaPage() {
                     <span className="text-xs font-semibold uppercase tracking-[0.22em]">Destaque da ação</span>
                   </div>
                   <p className="mt-4 text-xl leading-8 text-foreground">
-                    Cada jogo do Brasil é uma nova chance de ganhar — e um novo motivo para voltar, comentar e pedir com a Villa.
+                    Cada jogo do Brasil é uma nova chance de ganhar. Se mais de uma pessoa acertar o placar, o ganhador será definido por sorteio entre os participantes que acertaram.
                   </p>
                 </div>
 
@@ -447,9 +434,9 @@ export function SaboresCopaPage() {
 
               <div className="campaign-image-frame reveal" data-section="bolao_visual">
                 <img
-                  src={poolAsset.url}
+                  src={roastChickenImage}
                   alt="Criativo do Bolão da Copa com instruções para participar"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain p-4"
                   loading="lazy"
                 />
               </div>
@@ -462,7 +449,7 @@ export function SaboresCopaPage() {
           <div className="absolute inset-0 bg-campaign-final-overlay" aria-hidden="true" />
           <div className="container relative z-10 mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
             <div>
-              <span className="campaign-chip reveal">📣 Dobra 07</span>
+              <span className="campaign-chip reveal">📣 Acesse nosso cardápio</span>
               <div className="campaign-scoreboard reveal mt-5 rounded-[1.75rem] p-6 sm:p-8" data-section="cta_final">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-highlight">Placar oficial da campanha</p>
                 <h2 className="mt-4 font-display text-5xl leading-[0.9] text-foreground sm:text-6xl lg:text-7xl">
@@ -504,9 +491,9 @@ export function SaboresCopaPage() {
 
             <div className="campaign-image-frame reveal max-w-[38rem] justify-self-center lg:justify-self-end" data-section="cta_visual">
               <img
-                src={finalAsset.url}
+                src={ctaGif}
                 alt="Mascote da Villa apontando para o acesso ao site em um placar eletrônico"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -514,45 +501,57 @@ export function SaboresCopaPage() {
         </section>
 
         <footer className="border-t border-border/60 bg-panel/85">
-          <div className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-              <div>
-                <img src={logoAsset.url} alt="Logo da Villa Rotisseria" className="h-18 w-auto" loading="lazy" />
-                <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-                  Delivery especial, combos dos jogos, Copa dos Sabores, Passaporte Gastronômico e Bolão da Copa em uma campanha feita para alta conversão.
-                </p>
-                <p className="mt-4 font-display text-3xl leading-none text-highlight">O mundo joga. A Villa serve.</p>
-              </div>
+  <div className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+      <div>
+        <img src={logoAsset.url} alt="Logo da Villa Rotisseria" className="h-18 w-auto" loading="lazy" />
+        <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
+          Marmitex, assados, combos dos jogos, Copa dos Sabores, Passaporte Gastronômico e Bolão da Copa para você torcer com sabor durante toda a campanha.
+        </p>
+        <p className="mt-4 font-display text-3xl leading-none text-highlight">O mundo joga. A Villa serve.</p>
+      </div>
 
-              <div className="grid gap-3 text-sm sm:text-base">
-                <a href={CAMPAIGN_LINKS.instagram} target="_blank" rel="noreferrer" className="footer-link">
-                  Instagram: @villarotisseria
-                </a>
-                <a href={CAMPAIGN_LINKS.site} target="_blank" rel="noreferrer" className="footer-link">
-                  Site: villarotisseria.com.br
-                </a>
-                <a
-                  href={CAMPAIGN_LINKS.menu}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="footer-link"
-                  onClick={() => trackMenuClick("footer")}
-                >
-                  Cardápio: cardapio.villarotisseria.com.br
-                </a>
-                <a
-                  href={CAMPAIGN_LINKS.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="footer-link"
-                  onClick={() => trackWhatsAppClick("footer")}
-                >
-                  WhatsApp: Fazer pedido agora
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
+      <div className="grid gap-3 text-sm sm:text-base">
+        <a href="https://instagram.com/villarotisseria_" target="_blank" rel="noreferrer" className="footer-link">
+          Instagram: @villarotisseria_
+        </a>
+
+        <a
+          href={CAMPAIGN_LINKS.menu}
+          target="_blank"
+          rel="noreferrer"
+          className="footer-link"
+          onClick={() => trackMenuClick("footer")}
+        >
+          Cardápio: cardapio.villarotisseria.com.br
+        </a>
+
+        <a
+          href={CAMPAIGN_LINKS.whatsapp}
+          target="_blank"
+          rel="noreferrer"
+          className="footer-link"
+          onClick={() => trackWhatsAppClick("footer")}
+        >
+          WhatsApp: (17) 3215-6929
+        </a>
+
+        <p className="footer-link">
+          Endereço: R. José Bonifácio, 870 - Jardim Analice, São José do Rio Preto - SP, 15070-400
+        </p>
+
+        <a
+          href="https://mundodigitalsolucoes.com.br"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-link text-xs opacity-80"
+        >
+          Desenvolvido por Mundo Digital Soluções
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
         <a
           href={CAMPAIGN_LINKS.whatsapp}
