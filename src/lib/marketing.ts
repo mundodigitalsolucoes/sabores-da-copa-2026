@@ -7,7 +7,7 @@ export const CAMPAIGN_LINKS = {
 
 export const MARKETING_IDS = {
   gtm: "GTM-PSVPR4K5",
-  metaPixel: "",
+  metaPixel: "1482402063618540",
   googleAds: "",
   googleAdsWhatsAppLabel: "",
   googleAdsMenuLabel: "",
