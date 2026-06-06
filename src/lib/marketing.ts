@@ -1,5 +1,5 @@
 export const CAMPAIGN_LINKS = {
-  whatsapp: "https://wa.me/SEUNUMERO",
+  whatsapp: "https://wa.me/5517992091750",
   menu: "https://cardapio.villarotisseria.com.br",
   site: "https://villarotisseria.com.br",
   instagram: "https://instagram.com/villarotisseria",

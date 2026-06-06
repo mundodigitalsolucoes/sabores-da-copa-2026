@@ -15,7 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import heroAsset from "@/assets/sabores-copa-hero.png.asset.json";
+import heroImage from "@/assets/mascote-villa-copa.png";
 import deliveryAsset from "@/assets/delivery-especial.png.asset.json";
 import combosAsset from "@/assets/combos-especiais.png.asset.json";
 import flavorsAsset from "@/assets/copa-sabores.png.asset.json";
@@ -100,7 +100,8 @@ function CampaignActions({ source }: { source: string }) {
           onClick={() => trackWhatsAppClick(source)}
         >
           <span aria-hidden="true">🟢</span>
-          Fazer Pedido
+<span aria-hidden="true">📲</span>
+Fazer Pedido
         </a>
       </Button>
       <Button asChild variant="scoreboard" size="hero">
@@ -214,52 +215,29 @@ export function SaboresCopaPage() {
           <div className="container mx-auto grid min-h-screen max-w-7xl gap-10 px-4 pb-16 pt-6 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-24 lg:pt-8">
             <div className="relative z-10 flex flex-col justify-between">
               <div>
-                <div className="reveal flex items-center justify-between gap-4" data-section="hero">
-                  <a href="#top" className="inline-flex items-center gap-3" aria-label="Villa Rotisseria">
-                    <img
-                      src={logoAsset.url}
-                      alt="Logo da Villa Rotisseria"
-                      className="h-16 w-auto sm:h-20"
-                    />
-                  </a>
-                  <a
-                    href={CAMPAIGN_LINKS.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="campaign-chip hidden sm:inline-flex"
-                  >
-                    @villarotisseria
-                  </a>
-                </div>
-
+                
                 <div className="mt-10 max-w-2xl">
-                  <span className="campaign-chip reveal">Campanha oficial Copa do Mundo 2026</span>
-                  <h1 className="reveal mt-5 font-display text-6xl leading-[0.88] text-foreground sm:text-7xl lg:text-[6.6rem]">
+                   <h1 className="reveal mt-5 font-display text-6xl leading-[0.88] text-foreground sm:text-7xl lg:text-[6.6rem]">
                     Sabores da Copa é na Villa
                   </h1>
                   <p className="reveal mt-5 max-w-xl text-xl leading-8 text-highlight sm:text-2xl">
                     Promoções especiais durante toda a Copa do Mundo 2026.
                   </p>
                   <p className="reveal mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                    Antes do apito inicial, garanta o sabor da sua torcida com uma landing page feita para converter em pedido no WhatsApp e acesso direto ao cardápio online.
+                    Marmitex, assados e combos especiais para você torcer sem correria e garantir o sabor antes do apito inicial.
                   </p>
                   <CampaignActions source="hero" />
                 </div>
               </div>
-
-              <div className="reveal mt-10 grid gap-3 sm:grid-cols-3" aria-label="Indicadores da campanha">
-                {stats.map((stat) => (
-                  <CounterStat key={stat.label} {...stat} />
-                ))}
-              </div>
+              
             </div>
 
             <div className="relative z-10 flex items-end justify-center">
               <div className="campaign-image-frame reveal max-w-[36rem]" data-section="hero_poster">
                 <img
-                  src={heroAsset.url}
+                  src={heroImage}
                   alt="Arte principal da campanha Sabores da Copa com mascote da Villa em camisa 10 do Brasil"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain drop-shadow-[0_0_45px_rgba(255,208,0,0.25)] transition duration-700 ease-out hover:scale-[1.02]"
                   fetchPriority="high"
                 />
               </div>
@@ -597,7 +575,7 @@ export function SaboresCopaPage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Villa Rotisseria",
-            image: heroAsset.url,
+            image: heroImage,
             logo: logoAsset.url,
             url: CAMPAIGN_LINKS.site,
             description:
